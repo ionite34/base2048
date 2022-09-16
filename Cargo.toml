@@ -1,0 +1,16 @@
+[package]
+name = "base2048"
+version = "0.1.0"
+edition = "2021"
+exclude = ["/dist"]
+
+[lib]
+name = "base2048"
+crate-type = ["cdylib"]
+
+[package.metadata.maturin]
+python-source = "src-py"
+
+[dependencies.pyo3]
+version = "0.17.1"
+features = ["extension-module", "abi3-py37"]
