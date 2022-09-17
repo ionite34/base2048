@@ -3,10 +3,10 @@ extern crate lazy_static;
 
 mod encoder;
 
-use pyo3::prelude::*;
-use pyo3::types::PyBytes;
 use pyo3::create_exception;
 use pyo3::exceptions::PyValueError;
+use pyo3::prelude::*;
+use pyo3::types::PyBytes;
 
 create_exception!(base2048, DecodeError, PyValueError);
 
@@ -20,8 +20,8 @@ fn encode(s: &[u8]) -> String {
 #[pyfunction]
 fn decode(s: &str) -> PyResult<PyObject> {
     match encoder::decode(s) {
-        Some(v) => Ok(Python::with_gil(|py| PyBytes::new(py, &v).into())),
-        None => Err(DecodeError::new_err("Could not decode as base2048.")),
+        Ok(v) => Ok(Python::with_gil(|py| PyBytes::new(py, &v).into())),
+        Err(e) => Err(DecodeError::new_err(e)),
     }
 }
 
