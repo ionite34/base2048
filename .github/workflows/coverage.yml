@@ -56,4 +56,5 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           files: coverage.lcov,coverage.xml
+          flags: rust-llvm-cov,pytest
           name: ${{ matrix.os }}
