@@ -3,7 +3,7 @@ import base2048
 
 
 def fuzz_encode(data: str):
-    data = data.encode('raw_unicode_escape')
+    data = data.encode("raw_unicode_escape")
     result = base2048.encode(data)
     assert base2048.decode(result) == data
 
