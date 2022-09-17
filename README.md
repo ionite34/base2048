@@ -1,4 +1,4 @@
-# Base 2048 &emsp; [![pypi_badge]][pypi_url] [![build_badge]][build_url] [![versions]][pypi_url]
+# Base 2048 &emsp; [![pypi_badge]][pypi_url] [![versions]][pypi_url]
 
 [build_badge]: https://github.com/ionite34/base2048/actions/workflows/build.yml/badge.svg
 [build_url]: https://github.com/ionite34/base2048/actions/workflows/build.yml
@@ -10,6 +10,11 @@
 [bmp]: https://unicode.org/roadmaps/bmp/
 
 [rtl]: https://wikipedia.org/wiki/Right-to-left_mark
+
+[![build_badge]][build_url]
+[![Rust Tests](https://github.com/ionite34/base2048/actions/workflows/rust-test.yml/badge.svg)](https://github.com/ionite34/base2048/actions/workflows/rust-test.yml)
+[![codecov](https://codecov.io/gh/ionite34/base2048/branch/main/graph/badge.svg?token=1Qdx8w3zoy)](https://codecov.io/gh/ionite34/base2048)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ionite34/base2048/main.svg)](https://results.pre-commit.ci/latest/github/ionite34/base2048/main)
 
 ### When Base 64 is not enough
 
