@@ -15,6 +15,7 @@ keywords = ["base2048", "base64", "base-encoding", "encoding", "decoding"]
 dev = [
     "maturin",
     "pytest",
+    "pytest-cov",
     "frelatage",
 ]
 
