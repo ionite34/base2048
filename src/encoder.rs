@@ -1,8 +1,8 @@
-use std::fmt::Error;
+use crate::DecodeError;
 /// Original Implementation by [LLFourn](https://github.com/LLFourn/rust-base2048),
 /// based on [qntm/base2048](https://github.com/qntm/base2048)
 use hashbrown::HashSet;
-use crate::DecodeError;
+use std::fmt::Error;
 
 pub const ENC_TABLE: [char; 2048] = include!("./enc_table.src");
 pub const DEC_TABLE: [u16; 4340] = include!("./dec_table.src");
@@ -99,10 +99,10 @@ pub fn decode(string: &str) -> Result<Vec<u8>, String> {
             _ => {
                 let new_bits = DEC_TABLE[c as usize] as u16;
                 match chars.peek() {
-                    None => { (11 - residue, new_bits) }
-                    Some(_) => { (11, new_bits) }
+                    None => (11 - residue, new_bits),
+                    Some(_) => (11, new_bits),
                 }
-            },
+            }
         };
 
         remaining += n_new_bits;
@@ -155,7 +155,10 @@ mod test {
     #[case("ետћζы༑", "Invalid tail character 5: ['༑']")]
     // Invalid because of the X at the end
     #[case("ետћζыX", "Invalid termination character 5: ['X']")]
-    #[case("ետћζы༎X", "Unexpected character 6: ['X'] after termination sequence 5: ['༎']")]
+    #[case(
+        "ետћζы༎X",
+        "Unexpected character 6: ['X'] after termination sequence 5: ['༎']"
+    )]
     fn test_decode_invalid(#[case] input: &str, #[case] expected: &str) {
         assert_eq!(decode(input).unwrap_err(), expected);
     }
