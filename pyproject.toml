@@ -1,5 +1,6 @@
 [project]
 name = "base2048"
+description = "Binary encoding with Base2048 in Rust."
 version = "0.1.1"
 readme = "README.md"
 requires-python = ">=3.7"
