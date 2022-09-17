@@ -1,8 +1,6 @@
-use crate::DecodeError;
 /// Original Implementation by [LLFourn](https://github.com/LLFourn/rust-base2048),
 /// based on [qntm/base2048](https://github.com/qntm/base2048)
 use hashbrown::HashSet;
-use std::fmt::Error;
 
 pub const ENC_TABLE: [char; 2048] = include!("./enc_table.src");
 pub const DEC_TABLE: [u16; 4340] = include!("./dec_table.src");
