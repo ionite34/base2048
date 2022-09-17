@@ -1,5 +1,7 @@
-"""Unicode Text Compression and Encoding"""
+"""Binary encoding using Base2048"""
 
+class DecodeError(ValueError):
+    """Base2048 decoding error"""
 
 def encode(s: bytes) -> str:
     """
@@ -14,10 +16,10 @@ def encode(s: bytes) -> str:
 
 def decode(s: str) -> bytes:
     """
-    Decodes a bytes-like object or ASCII string s using Base2048.
+    Decodes a string s using Base2048.
 
     Args:
-        s: Bytes-like or str object to decode.
+        s: string to decode.
 
     Returns:
         bytes: Decoded bytes.
