@@ -1,12 +1,12 @@
 #[macro_use]
 extern crate lazy_static;
 
-mod encoder;
-
 use pyo3::create_exception;
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
 use pyo3::types::PyBytes;
+
+mod encoder;
 
 create_exception!(base2048, DecodeError, PyValueError);
 
@@ -30,5 +30,6 @@ fn decode(s: &str) -> PyResult<PyObject> {
 fn module(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(encode, m)?)?;
     m.add_function(wrap_pyfunction!(decode, m)?)?;
+    m.add("DecodeError", _py.get_type::<DecodeError>())?;
     Ok(())
 }

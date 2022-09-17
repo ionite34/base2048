@@ -1,10 +1,11 @@
 import frelatage
+
 import base2048
 
 
 def fuzz_encode(data: str):
-    data = data.encode('raw_unicode_escape')
-    result = base2048.encode(data)
+    data: bytes = data.encode("raw_unicode_escape")  # type: ignore
+    result = base2048.encode(data)  # type: ignore
     assert base2048.decode(result) == data
 
 
