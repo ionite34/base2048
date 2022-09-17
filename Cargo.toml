@@ -1,6 +1,7 @@
 [package]
 name = "base2048"
-version = "0.1.0"
+description = "Binary encoding with Base2048 in Rust."
+version = "0.1.1"
 edition = "2021"
 exclude = ["/dist"]
 
