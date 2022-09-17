@@ -1,8 +1,3 @@
-from .uzip import *
-from .core import pack
+from .base2048 import encode, decode
 
-__all__ = [
-    "b2048encode",
-    "b2048decode",
-    "pack",
-]
+__all__ = ["encode", "decode"]

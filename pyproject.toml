@@ -1,10 +1,21 @@
 [project]
 name = "base2048"
+version = "0.1.0"
+readme = "README.md"
 requires-python = ">=3.7"
+license = "MIT"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+]
+keywords = ["base2048", "base64", "base-encoding", "encoding", "decoding"]
+
+[project.optional-dependencies]
+dev = [
+    "maturin",
+    "pytest",
+    "frelatage",
 ]
 
 [tool.maturin]
