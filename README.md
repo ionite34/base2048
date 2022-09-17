@@ -68,6 +68,23 @@ unpacked[2000:2002]
 >> '🦀🐍'
 ```
 
+### Decode errors are provided with a character-position of failure
+
+```python
+----> base2048.decode('༗ǥԢΝĒϧǰ༎ǥ')
+
+DecodeError: Unexpected character 8: ['ǥ'] after termination sequence 7: ['༎']
+```
+- To catch the error, use either `base2048.DecodeError` or its base exception, `ValueError`.
+```python
+from base2048 import DecodeError
+
+try:
+    base2048.decode('🤔')
+except DecodeError as e:
+    print(e)
+```
+
 ## License
 The code in this project is released under the [MIT License](LICENSE).
 
