@@ -5,6 +5,8 @@ on:
     branches:
       - main
   pull_request:
+  workflow_call:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -38,20 +40,3 @@ jobs:
       with:
         name: wheels
         path: dist
-
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    if: "startsWith(github.ref, 'refs/tags/')"
-    needs: build
-    steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: wheels
-      - name: Publish to PyPI
-        uses: messense/maturin-action@v1
-        env:
-          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-        with:
-          command: upload
-          args: --skip-existing *
