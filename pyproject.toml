@@ -22,6 +22,8 @@ dev = [
     "maturin",
     "pytest",
     "pytest-cov",
+]
+fuzz = [
     "frelatage",
 ]
 
