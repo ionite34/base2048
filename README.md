@@ -13,6 +13,8 @@
 
 [![build_badge]][build_url]
 [![Rust Tests](https://github.com/ionite34/base2048/actions/workflows/rust-test.yml/badge.svg)](https://github.com/ionite34/base2048/actions/workflows/rust-test.yml)
+[![Python Tests](https://github.com/ionite34/base2048/actions/workflows/py-test.yml/badge.svg)](https://github.com/ionite34/base2048/actions/workflows/py-test.yml)
+
 [![codecov](https://codecov.io/gh/ionite34/base2048/branch/main/graph/badge.svg?token=1Qdx8w3zoy)](https://codecov.io/gh/ionite34/base2048)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ionite34/base2048/main.svg)](https://results.pre-commit.ci/latest/github/ionite34/base2048/main)
 
