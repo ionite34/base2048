@@ -39,10 +39,10 @@ pip install base2048
 import base2048
 
 base2048.encode(b'Hello!')
->> 'ϓțƘ໐µ'
+# => 'ϓțƘ໐µ'
 
 base2048.decode('ϓțƘ໐µ')
->> b'Hello!'
+# => b'Hello!'
 ```
 
 ### Up to 2x less counted characters compared to Base 64
@@ -56,18 +56,21 @@ import base2048
 string = ('🐍 🦀' * 1000 + '🐕' * 1000).encode()
 data = zlib.compress(string)
 
-base64.b64encode(b)
->> b'eJztxrEJACAQBLBVHNUFBBvr75zvRvgxBEkRSGqvkbozIiIiIiIiIiIiIiIiIiIiIiJf5wAAAABvNbM+EOk=' # 84 chars
+b64_data = base64.b64encode(data)
+# => b'eJztxrEJACAQBLBVHNUFBBvr75zvRvgxBEkRSGqvkbozIiIiIiIiIiIiIiIiIiIiIiJf5wAAAABvNbM+EOk='
+len(b64_data)
+# => 84
 
-base2048.encode(b)
->> 'ը྿Ԧҩ২ŀΏਬйཬΙāಽႩԷ࿋ႬॴŒǔ०яχσǑňॷβǑňॷβǑňॷβǯၰØØÀձӿօĴ༎' # 46 chars
+b2048_data = base2048.encode(data)
+# => 'ը྿Ԧҩ২ŀΏਬйཬΙāಽႩԷ࿋ႬॴŒǔ०яχσǑňॷβǑňॷβǑňॷβǯၰØØÀձӿօĴ༎'
+len(b2048_data)
+# => 46
 
-unpacked = zlib.decompress(base2048.decode('ը྿Ԧҩ২ŀΏਬйཬΙāಽႩԷ࿋ႬॴŒǔ०яχσǑňॷβǑňॷβǑňॷβǯၰØØÀձӿօĴ༎')).decode()
+unpacked = zlib.decompress(base2048.decode(b2048_data)).decode()
 len(unpacked)
->> 4000
-
-unpacked[2000:2002]
->> '🦀🐍'
+# => 4000
+unpacked[2000:2002])
+# => '🦀🐍'
 ```
 
 ### Decode errors are provided with a character-position of failure
