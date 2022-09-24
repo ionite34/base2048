@@ -73,6 +73,11 @@ pub fn decode(string: &str) -> Result<Vec<u8>, String> {
         // last character and it's NOT a tail character.
         residue = (residue + 11) % 8;
 
+        // Char must be within the table size (4340)
+        if c as usize > 4339 {
+            return Err(format!("Invalid character {i}: [{c:?}]"));
+        }
+
         let (n_new_bits, new_bits) = match c {
             // Check if the character is in the zero set
             c if ZERO_SET.contains(&(c as u16)) => {

@@ -19,6 +19,8 @@ def test_b2048_encode() -> None:
             "ետћζы༎Z",
             "Unexpected character 6: ['Z'] after termination sequence 5: ['༎']",
         ),
+        ("ϓțƘ🤔", "Invalid character 3: ['🤔']"),
+        (chr(4340), "Invalid character 0: ['ჴ']"),
     ],
 )
 def test_b2048_decode_err(data: str, expected: str) -> None:
