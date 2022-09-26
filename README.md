@@ -69,7 +69,7 @@ len(b2048_data)
 unpacked = zlib.decompress(base2048.decode(b2048_data)).decode()
 len(unpacked)
 # => 4000
-unpacked[2000:2002])
+unpacked[2000:2002]
 # => '🦀🐍'
 ```
 
@@ -82,11 +82,11 @@ DecodeError: Unexpected character 8: ['ǥ'] after termination sequence 7: ['༎'
 ```
 - To catch the error, use either `base2048.DecodeError` or its base exception, `ValueError`.
 ```python
-from base2048 import DecodeError
+import base2048
 
 try:
     base2048.decode('🤔')
-except DecodeError as e:
+except base2048.DecodeError as e:
     print(e)
 ```
 
