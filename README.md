@@ -69,7 +69,7 @@ len(b2048_data)
 unpacked = zlib.decompress(base2048.decode(b2048_data)).decode()
 len(unpacked)
 # => 4000
-unpacked[2000:2002])
+unpacked[2000:2002]
 # => '🦀🐍'
 ```
 
