@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v5.0.0
     hooks:
       - id: check-json
       - id: check-toml
@@ -15,19 +15,19 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v2.20.0
+    rev: v4.0.1
     hooks:
       - id: validate_manifest
 
   # Format with black
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 24.10.0
     hooks:
       - id: black
 
   # Flake8 for linting, line-length adjusted to match Black default
   - repo: https://github.com/PyCQA/flake8
-    rev: 5.0.4
+    rev: 7.1.1
     hooks:
       - id: flake8
         additional_dependencies: [ flake8-builtins ]
@@ -37,6 +37,6 @@ repos:
 
   # Type enforcement for Python
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.982
+    rev: v1.12.1
     hooks:
       - id: mypy
