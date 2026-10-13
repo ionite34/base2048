@@ -11,32 +11,39 @@ on:
 jobs:
   build:
     name: Build
+    runs-on: ${{ matrix.runner }}
     strategy:
       matrix:
-        os: ["ubuntu", "windows", "macos"]
         include:
           - os: ubuntu
-            build-manylinux: auto
-            build-args: --release --sdist -o dist --find-interpreter
+            runner: ubuntu-latest
+            manylinux: auto
+            args: --release --sdist -o dist --find-interpreter
           - os: windows
-            build-manylinux: false
-            build-args: --release -o dist --find-interpreter
+            runner: windows-latest
+            manylinux: "false"
+            args: --release -o dist --find-interpreter
+          - os: windows-arm
+            runner: windows-11-arm
+            manylinux: "false"
+            args: --release -o dist --find-interpreter
           - os: macos
-            build-manylinux: auto
-            build-args: --release -o dist --universal2 --find-interpreter
+            runner: macos-latest
+            manylinux: auto
+            args: --release -o dist --universal2 --find-interpreter
 
-    runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@v3
 
     - uses: messense/maturin-action@v1
       with:
-        manylinux: ${{ matrix.build-manylinux }}
+        manylinux: ${{ matrix.manylinux }}
         command: build
-        args: ${{ matrix.build-args }}
+        args: ${{ matrix.args }}
 
     - name: Upload wheels
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: wheels
         path: dist
+
